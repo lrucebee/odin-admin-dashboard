@@ -1,0 +1,376 @@
+:root {
+  --gray-1: #fafaf9;
+  --gray-2: #e7e5e4;
+  --gray-3: #292524;
+  --gray-4: #1c1917;
+  --gray-m: #78716c;
+  --primary: #084c61;
+  --accent: #fa3a6d;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --avatar1: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/06fbe298931623.5ee79b6a90221.jpg);
+  --avatar2: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/2e80bb98931623.5ee79b6a8f342.jpg);
+  --avatar3: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/8394f798931623.5ee79b6a909ea.jpg);
+  --avatar4: url(https://mir-s3-cdn-cf.behance.net/project_modules/disp/baa20698931623.5ee79b6a8ec2b.jpg);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--gray-4);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input {
+  color: inherit;
+  font: inherit;
+}
+
+button {
+  border: none;
+  appearance: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+body {
+  color: var(--gray-3);
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar content';
+}
+
+/* --- --- --- --- --- HEADER --- --- --- --- --- --- */
+.header {
+  background-color: var(--gray-1);
+  grid-area: header;
+  padding: 1.5rem 3rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 3;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  margin-bottom: 2.5rem;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  width: 100%;
+}
+
+.search label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.search-icon {
+  font-size: 1.8rem;
+}
+
+.search > #search {
+  display: inline-block;
+  border: 0;
+  background-color: var(--gray-2);
+  padding: 0.75em 2em;
+  outline-color: var(--primary);
+  margin-left: 1.25rem;
+  border-radius: 99em;
+  width: min(80%, 700px);
+}
+
+.header .account {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.account button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.picture {
+  background: var(--avatar1) center center / cover no-repeat;
+  border-radius: 50%;
+}
+
+.account .picture {
+  margin: 0 1rem 0 2.5rem;
+  height: 40px;
+  width: 40px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile .picture {
+  width: 75px;
+  height: 75px;
+}
+
+.profile .greeting {
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.profile .name {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+}
+
+.btn {
+  background-color: var(--primary);
+  color: var(--gray-1);
+  font-weight: 500;
+  padding: 0.75em 2.3em;
+  border-radius: 99em;
+}
+
+/* --- --- --- --- --- SIDEBAR --- --- --- --- --- --- */
+.sidebar {
+  background-color: var(--primary);
+  color: var(--gray-1);
+  padding: 2rem;
+  grid-area: sidebar;
+}
+
+.sidebar-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.75rem;
+}
+
+.sidebar-title > [class^='material-icons'] {
+  font-size: 1.4em;
+  margin-right: 0.25em;
+}
+
+.nav {
+  font-size: 1.2rem;
+  margin-top: 3.25rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.nav-item.current {
+  font-weight: 900;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.nav-link > [class^='material-icons'] {
+  font-size: 1.5em;
+}
+
+/* --- --- --- --- --- MAIN CONTENT --- --- --- --- --- --- */
+.content {
+  background-color: var(--gray-2);
+  grid-area: content;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: min-content 1fr;
+  gap: 2rem;
+  grid-template-areas:
+    'projects announcements'
+    'projects trending';
+  overflow: scroll;
+}
+
+.content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.card {
+  background-color: var(--gray-1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+}
+
+.card-text {
+  color: var(--gray-m);
+}
+
+.projects {
+  grid-area: projects;
+}
+
+.projects .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-auto-rows: 250px;
+  gap: 2rem;
+}
+
+.projects .card {
+  border-left: 10px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+}
+
+.projects .card-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.25em;
+}
+
+.projects .card-text {
+  /* font-size: 0.8rem; */
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.actions {
+  margin-top: auto;
+  align-self: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.actions span {
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+.announcements {
+  grid-area: announcements;
+}
+
+.announcement {
+  width: 25ch;
+  padding: 1rem 0;
+}
+
+.announcement:first-child {
+  padding-top: 0;
+}
+
+.announcement:last-child {
+  padding-bottom: 0;
+}
+
+.announcement h5 {
+  font-size: 0.9rem;
+  margin-bottom: 0.25em;
+}
+
+.announcement p {
+  font-size: 0.8rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.announcement + .announcement {
+  border-top: var(--gray-2) 1px solid;
+}
+
+.trending {
+  grid-area: trending;
+}
+
+.trending .card {
+  padding: 1.5rem;
+}
+
+.trend {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.trend + .trend {
+  margin-top: 1.5rem;
+}
+
+.trend .picture {
+  background-color: var(--accent);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+
+.trend .account {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.trend .username {
+  font-weight: 500;
+  margin-bottom: 0.15rem;
+}
+
+.trend-1 .picture {
+  background-image: var(--avatar2);
+}
+
+.trend-3 .picture {
+  background-image: var(--avatar3);
+}
+
+.trend-4 .picture {
+  background-image: var(--avatar4);
+}
