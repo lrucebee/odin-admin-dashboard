@@ -227,7 +227,7 @@ body {
   grid-template-areas:
     'projects announcements'
     'projects trending';
-  overflow: hidden;
+  overflow: auto;
 }
 
 .content h3 {
