@@ -255,6 +255,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-auto-rows: 250px;
   gap: 2rem;
+  padding-bottom: 2rem;
 }
 
 .projects .card {
